@@ -1,22 +1,33 @@
 import os
-os.chdir("/home/cedric/Travail/AlgoInfo/CodesPython/adventofcode/2021/")
+os.chdir("/home/cedric/Travail/AlgoInfo/CodesPython/adventofcode/aoc/2021/")
 
 data_str = open("input_day6.txt").read().splitlines()
 fishes = list(map(int, data_str[0].split(',')))
+# Example
+fishes = [3, 4, 3, 1, 2]
 
-## Part 1 
+nb_days = 18
 
-nb_days = 80
+## Part 1
 
-for day in range(nb_days):
-    new_fish = 0
-    for i in range(len(fishes)):
-        if fishes[i] == 0:
-            fishes[i] = 6
-            new_fish += 1
-        else:
-            fishes[i] -= 1
-    fishes += new_fish * [8]
+# for day in range(nb_days):
+#     new_fish = 0
+#     for i in range(len(fishes)):
+#         if fishes[i] == 0:
+#             fishes[i] = 6
+#             new_fish += 1
+#         else:
+#             fishes[i] -= 1
+#     fishes += new_fish * [8]
+# 
 
+## Part 2
 
-    
+def create(timer, days):
+    new = (days-timer)//7 + 1*((days-timer)%7 > 0)
+    print(new)
+    c = 0
+    for k in range(new):
+        c += create(8, days-(timer+k*7))
+    return c
+
