@@ -24,10 +24,12 @@ nb_days = 18
 ## Part 2
 
 def create(timer, days):
-    new = (days-timer)//7 + 1*((days-timer)%7 > 0)
-    print(new)
-    c = 0
+    new = (days-timer)//7 + 1
+    # print(new)
+    c = new
     for k in range(new):
         c += create(8, days-(timer+k*7))
     return c
 
+for fish in [3,4,3,1,2]:
+    print(create(fish, 18))
