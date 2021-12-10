@@ -19,12 +19,12 @@ nb_days = 18
 #         else:
 #             fishes[i] -= 1
 #     fishes += new_fish * [8]
-# 
+#
 
 ## Part 2
 
 def create(timer, days):
-    new = (days-timer)//7 + 1
+    new = max(0, (days-timer)//7 + 1*((days-timer)%7>0))
     # print(new)
     c = new
     for k in range(new):
@@ -33,3 +33,5 @@ def create(timer, days):
 
 for fish in [3,4,3,1,2]:
     print(create(fish, 18))
+
+print(sum([create(fish, 256) for fish in [3,4,3,1,2]]))
