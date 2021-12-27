@@ -63,9 +63,10 @@ def voisins(s):
     if j < len(full_map[0])-1:
         lst.append([full_map[i][j+1], (i, j+1)])
     return lst
-
+t0 = time.time()
 full_map = create_map(data_str)
+t1 = time.time()
 d, p = dijkstra((0,0), (499, 499), voisins)
-
+t2 = time.time()
 print(d)
-
+print(t2-t1, t1-t0)
