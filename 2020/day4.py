@@ -1,6 +1,7 @@
 with open("input_day4.txt","r") as f:
     batch = [l.strip() for l in f.readlines()]
 
+data = open('input_day4.txt').read().splitlines()
 ##Part 1
 
 # def isValid(passport):
